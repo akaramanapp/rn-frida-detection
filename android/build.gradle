@@ -57,6 +57,7 @@ android {
     externalNativeBuild {
       cmake {
         cppFlags "-O2 -frtti -fexceptions -Wall -fstack-protector-all"
+        arguments "-DCMAKE_VERBOSE_MAKEFILE:BOOL=ON"
       }
     }
   }

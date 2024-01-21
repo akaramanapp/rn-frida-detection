@@ -28,10 +28,24 @@ public class RnFridaDetectionModule extends ReactContextBaseJavaModule {
 
   private static native double nativeMultiply(double a, double b);
 
+  private static native double nativeBol(double a, double b);
+
+  private static native void nativeDetect();
+
   // Example method
   // See https://reactnative.dev/docs/native-modules-android
   @ReactMethod
   public void multiply(double a, double b, Promise promise) {
     promise.resolve(nativeMultiply(a, b));
+  }
+
+  @ReactMethod
+  public void bol(double a, double b, Promise promise) {
+    promise.resolve(nativeBol(a, b));
+  }
+
+  @ReactMethod
+  public void detect(Promise promise) {
+    nativeDetect();
   }
 }

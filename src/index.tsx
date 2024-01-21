@@ -20,3 +20,11 @@ const RnFridaDetection = NativeModules.RnFridaDetection
 export function multiply(a: number, b: number): Promise<number> {
   return RnFridaDetection.multiply(a, b);
 }
+
+export function bol(a: number, b: number): Promise<number> {
+  return RnFridaDetection.bol(a, b);
+}
+
+export function detect(): Promise<number> {
+  return RnFridaDetection.detect();
+}

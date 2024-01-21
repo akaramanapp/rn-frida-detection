@@ -9,6 +9,10 @@ add_library(rn-frida-detection            SHARED
             cpp-adapter.cpp
 )
 
+find_library(log-lib log)
+
+target_link_libraries(rn-frida-detection ${log-lib})
+
 # Specifies a path to native header files.
 include_directories(
             ../cpp
