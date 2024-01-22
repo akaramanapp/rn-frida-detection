@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, Platform } from 'react-native';
 import { multiply, bol, detect } from 'rn-frida-detection';
 
 export default function App() {
@@ -11,7 +11,7 @@ export default function App() {
     multiply(3, 7).then(setResult);
     bol(10, 2).then(setBolum);
 
-    detect();
+    Platform.OS === 'android' && detect()
   }, []);
 
   return (

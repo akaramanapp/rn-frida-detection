@@ -4,7 +4,10 @@
 #include <unistd.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
+
+#ifdef __ANDROID__
 #include <android/log.h>
+#endif
 
 #include <iostream>
 #include <future>
@@ -12,14 +15,16 @@
 #include <thread>
 
 #include <stdio.h>
+
+#ifdef __ANDROID__
 #include <jni.h>
+#endif
 #include <string.h>
 #include <fcntl.h>
 #include <pthread.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
-#include <android/log.h>
 #include <unistd.h>
 #include <errno.h>
 
@@ -36,6 +41,7 @@ namespace rnfridadetection {
 
     #define APPNAME "FridaDetectionTest"
 
+#ifdef __ANDROID__
 	void detect() {
         __android_log_print(ANDROID_LOG_INFO, APPNAME, "Start Frida detection");
 		struct sockaddr_in sa;
@@ -69,4 +75,5 @@ namespace rnfridadetection {
             }
         }
 	}
+#endif
 }
